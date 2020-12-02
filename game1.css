@@ -1,0 +1,71 @@
+*{
+	font-family: 'Aclonica';
+	outline: none;
+}
+.heading{
+	height: 158px;
+	width: 100%;
+	}
+.gamearea{
+	width: 100%;
+	height: 600px;
+	background-image:url("forest.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+    
+}
+.game{
+	width: 25%;
+	height: 40%;
+	border: 3px solid lightgrey;
+	border-radius: 20%;
+	float: left;
+    
+	margin-top: 1%;
+	margin-left: 6%;
+	overflow: hidden;
+	transition: 0.5s;
+}
+.inside
+{
+	border: 2px solid lightgrey;
+	height: 90%;
+background-image: url("mouse1.png");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+position: relative;
+
+top: 98%;
+border-radius: 50%;
+
+}
+.btarea{
+	width: 100%;
+	padding-top: 1%;
+	text-align: center;
+
+}
+.btarea button{
+	height: 45px;
+	width: 13%;
+	border-radius: 47%;
+	font-size: xx-large;
+	border: none;
+	color: white;
+	background-color: #38B449;
+}
+
+.tc{
+	width: 49%;
+	text-align: center;
+	float: left;
+	font-size: 35px;
+}
+
+.scr{
+	
+    width: 50%;
+	text-align: center;
+	font-size: 40px;
+	float: left;
+}

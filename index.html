@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>newgame</title>
+	<link rel="stylesheet" type="text/css" href="game1.css">
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+</head>
+<body>
+
+
+<div class="heading">
+
+       <div class="btarea">
+
+	  <button id="mybtn" onclick="myf1()">Start</button> 
+	  
+       
+        </div>
+
+<div class="tc">
+<p style="color: red">Topscore=<span id="topscore" style="color: green"></span></p>
+ </div>
+   <div class="scr">
+    <p style="color: red">You score is...<span id="score" style="color: red"></span></p>
+                   
+   </div>
+
+</div>
+
+<div class="gamearea">
+                    
+                    
+                    <div class="game" id="d1">
+                    	    <div class="inside" id="insided1" onclick="myf3()">
+                    	    	
+                    	    </div>         
+                    </div>
+                    <div class="game" id="d2">
+                    	     <div class="inside" id="insided2" onclick="myf3()">
+                    	                 	
+                    	     </div> 
+                    </div> 
+                    <div class="game" id="d3">
+                    	        <div class="inside" id="insided3" onclick="myf3()">
+                    	        	
+                    	        </div>   
+                    </div>
+                    
+                    <div class="game" id="d4">
+                    	         <div class="inside" id="insided4" onclick="myf3()">
+                    	         	
+                    	         </div>
+                    </div>
+                    <div class="game" id="d5">
+                    	          <div class="inside" id="insided5" onclick="myf3()">
+                    	          	
+                    	          </div>
+                    </div>
+                    <div class="game" id="d6">
+                    	           <div class="inside" id="insided6" onclick="myf3()">
+                    	           	
+                    	           </div>
+                    </div>
+
+
+
+
+</div>
+
+
+                         
+<script>
+
+          if(localStorage.getItem("topscore1")==null)
+              {
+                      localStorage.setItem("topscore1",0);
+                      var hscore=0;
+              }
+              else{
+
+             var hscore=parseInt(localStorage.getItem("topscore1"));
+
+                  }
+
+
+             var score=0;
+             var x=0;
+             var y="";
+             var last="";
+             var counter=0;
+
+            
+
+
+
+             var vmax=0;
+             document.getElementById("topscore").innerHTML=localStorage.getItem("topscore1");
+             function myf2(max,min)
+             {
+                   return Math.round(Math.random() * (max - min) + min);
+             
+             }
+
+
+
+	            function myf1()
+	        {    
+                document.getElementById("mybtn").disabled = true;
+
+	        	   x=myf2(1,6);
+
+                  y="insided"+x;
+                      
+                  if(y==last)
+                  {  
+                      console.log("repeted");
+                      myf1();
+                  }
+                 else{
+
+                 	   if(counter<15)
+
+                                  {
+
+                 	   document.getElementById(y).style.top="0%";
+                 	       
+                 	
+	                   setTimeout(function(){document.getElementById(y).style.top="98%";},500);
+	                  setTimeout(function(){myf1()},1000);
+
+                                  counter=counter+1; 
+                                   last=y;
+	                        console.log(y);
+                            
+	                        
+	                                            
+                                 }
+                        
+                               else{
+                    	        console.log("done");
+                                document.getElementById("mybtn").disabled = false;
+                    	         last="";
+                    	         counter=0;
+                    	  if(score>=hscore)
+					           {
+
+					           	hscore=score;
+
+					           	localStorage.setItem("topscore1",hscore);
+
+
+					           	document.getElementById("topscore").innerHTML=localStorage.getItem("topscore1");
+                                 score=0;
+					           } 
+                               else
+                               {
+                                score=0;
+                               }
+
+					           
+
+                    }
+                }
+                }
+
+       function myf3()
+       {
+                 score=score+1;
+                document.getElementById("score").innerHTML=score;
+
+       }                   
+
+</script>
+
+</body>
+</html>
